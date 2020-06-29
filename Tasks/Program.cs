@@ -52,7 +52,7 @@ namespace Tasks
 		{
 			if (!tasks.TryGetValue(project, out IList<Task> projectTasks))
 			{
-				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
+			Console.WriteLine("Could not find a project with the name \"{0}\".", project);
 				return;
 			}
 			projectTasks.Add(new Task { Id = lastId.Id, Description = description, Done = false });
