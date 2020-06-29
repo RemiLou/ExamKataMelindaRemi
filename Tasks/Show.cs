@@ -10,12 +10,12 @@ namespace Tasks
 		{
 			foreach (var project in tasks)
 			{
-				console.WriteLine(project.Key);
+				Program.console.WriteLine(project.Key);
 				foreach (var task in project.Value)
 				{
-					console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
+					Program.console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
 				}
-				console.WriteLine();
+				Program.console.WriteLine();
 			}
 		}
     }

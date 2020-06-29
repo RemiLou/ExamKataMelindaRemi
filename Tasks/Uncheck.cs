@@ -10,13 +10,13 @@ namespace Tasks
         public override void CommandInput()
         {
 			int id = int.Parse(idString);
-			var identifiedTask = tasks
+			var identifiedTask = Program.tasks
 				.Select(project => project.Value.FirstOrDefault(task => task.Id == id))
 				.Where(task => task != null)
 				.FirstOrDefault();
 			if (identifiedTask == null)
 			{
-				console.WriteLine("Could not find a task with an ID of {0}.", id);
+				Program.console.WriteLine("Could not find a task with an ID of {0}.", id);
 				return;
 			}
 

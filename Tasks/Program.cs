@@ -4,24 +4,19 @@ using System.Linq;
 
 namespace Tasks
 {
-	public class Program
+	public static class Program
 	{
 		private const string QUIT = "quit";
 
-		private List<Project> projects = new List<Project>();
-		private readonly IConsole console;
+		public static List<Project> projects = new List<Project>();
+		public static readonly IConsole console;
 
 		public static void Main(string[] args)
 		{
-			new Program(new RealConsole()).Run();
+			Program.Run();
 		}
 
-		public Program(IConsole console)
-		{
-			this.console = console;
-		}
-
-		public void Run()
+		public static void Run()
 		{
 			while (true) {
 				console.Write("> ");
@@ -29,11 +24,11 @@ namespace Tasks
 				if (command == QUIT) {
 					break;
 				}
-				Execute(command);
+				Program.Execute(command);
 			}
 		}
 
-		private void Execute(string commandLine)
+		private static void Execute(string commandLine)
 		{
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
@@ -42,21 +37,6 @@ namespace Tasks
 			var executeCommand = commandType.GetCommandType(command);
 
 			executeCommand.CommandInput();
-		}
-
-		public void SetTaskStatus(string IdSearched, bool done)
-		{
-			int id = int.Parse(IdSearched);
-			var task = projects
-				.Select(project => project.Tasks.FirstOrDefault(task => task.Id == id))
-				.FirstOrDefault();
-
-			if (task == null) {
-				console.WriteLine("Could not find a task with an ID of {0}.", id);
-				return;
-			}
-
-			task.Done = done;
 		}
 	}
 }
