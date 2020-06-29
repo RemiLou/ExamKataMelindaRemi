@@ -8,10 +8,10 @@ namespace Tasks
     {
 		public override void CommandInput()
 		{
-			foreach (var project in tasks)
+			foreach (var project in Program.projects)
 			{
-				Program.console.WriteLine(project.Key);
-				foreach (var task in project.Value)
+				Program.console.WriteLine(project.Name);
+				foreach (var task in project.Tasks)
 				{
 					Program.console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
 				}
