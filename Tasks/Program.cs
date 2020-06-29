@@ -8,7 +8,10 @@ namespace Tasks
 	{
 		private const string QUIT = "quit";
 
+		private List<Project> projects = new List<Project>();
 		private readonly IConsole console;
+
+		private LastId lastId = new LastId();
 
 		public static void Main(string[] args)
 		{
@@ -43,34 +46,19 @@ namespace Tasks
 			executeCommand.CommandInput();
 		}
 
-		private void AddProject(string name)
+		private void SetDone(string IdSearched, bool done)
 		{
-			tasks[name] = new List<Task>();
-		}
-
-		private void AddTask(string project, string description)
-		{
-			if (!tasks.TryGetValue(project, out IList<Task> projectTasks))
-			{
-			Console.WriteLine("Could not find a project with the name \"{0}\".", project);
-				return;
-			}
-			projectTasks.Add(new Task { Id = lastId.Id, Description = description, Done = false });
-		}
-
-		private void SetDone(string idString, bool done)
-		{
-			int id = int.Parse(idString);
-			var identifiedTask = tasks
-				.Select(project => project.Value.FirstOrDefault(task => task.Id == id))
-				.Where(task => task != null)
+			int id = int.Parse(IdSearched);
+			var task = projects
+				.Select(project => project.Tasks.FirstOrDefault(task => task.Id == id))
 				.FirstOrDefault();
-			if (identifiedTask == null) {
+
+			if (task == null) {
 				console.WriteLine("Could not find a task with an ID of {0}.", id);
 				return;
 			}
 
-			identifiedTask.Done = done;
+			task.Done = done;
 		}
 	}
 }

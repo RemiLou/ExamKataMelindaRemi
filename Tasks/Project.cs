@@ -10,11 +10,11 @@ namespace Tasks
 
 		public string Name { get; set; }
 
-		private List<Task> tasks = new List<Task>();
+		public List<Task> Tasks = new List<Task>();
 
-		private void AddTask(string description)
+		public void AddTask(string description)
 		{
-			tasks.Add(new Task { Id = lastId.Id, Description = description, Done = false });
+			Tasks.Add(new Task { Id = lastId.Id, Description = description, Done = false });
 		}
 	}
 }
