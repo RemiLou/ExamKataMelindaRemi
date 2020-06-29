@@ -16,7 +16,7 @@ namespace Tasks
 					commandType = new Show();
 					break;
 				case "add":
-					commandType = new Add(commandText[1]); // Param
+					commandType = new Add(commandText[0], commandText[1], commandText[1].Split(" ".ToCharArray(), 2)[1]); // Param Type + Name + Description
 					break;
 				case "check":
 					commandType = new Check(commandText[1]); // Param
