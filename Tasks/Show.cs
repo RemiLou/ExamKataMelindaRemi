@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Tasks
 {
-    public class Show : ICommand
+    public class Show : Command
     {
-        public void Command()
-        {
+		public override void CommandType()
+		{
 			foreach (var project in tasks)
 			{
 				console.WriteLine(project.Key);
