@@ -6,7 +6,7 @@ namespace Tasks
 {
     class Add : Command
     {
-		public override void CommandInput()
+		public override void CommandInput(params object[] parameters)
 		{
 			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var subcommand = subcommandRest[0];

@@ -6,8 +6,7 @@ using System.Text;
 namespace Tasks
 {
     public abstract class Command
-    {
-
+    { 
         public virtual void CommandInput(params object[] parameters)
         { 
         

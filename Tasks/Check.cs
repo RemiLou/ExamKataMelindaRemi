@@ -6,9 +6,9 @@ namespace Tasks
 {
     class Check : Command
     {
-        public override void CommandInput(int id, bool status)
+        public override void CommandInput(params object[] parameters)
         {
-            Program.SetTaskStatus(id, status);
+            Program.SetTaskStatus(parameters[0].ToString(), Convert.ToBoolean(parameters[1]));
         }
 	}
 }
