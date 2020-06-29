@@ -30,8 +30,7 @@ namespace Tasks
 
 		private static void Execute(string commandLine)
 		{
-			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
-			var command = commandRest[0];
+			var commandText = commandLine.Split(" ".ToCharArray(), 2);
 
 			CommandFactory commandType = new CommandFactory();
 			var executeCommand = commandType.GetCommandType(command);

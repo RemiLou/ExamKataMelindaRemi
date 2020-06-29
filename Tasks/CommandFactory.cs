@@ -7,28 +7,28 @@ namespace Tasks
 {
     public class CommandFactory
     {
-		public Command GetCommandType(string command)
+		public Command GetCommandType(string[] commandText)
 		{
 			Command commandType;
-			switch (command)
+			switch (commandText[0]) // Type
 			{
 				case "show":
 					commandType = new Show();
 					break;
 				case "add":
-					commandType = new Add();
+					commandType = new Add(commandText[1]); // Param
 					break;
 				case "check":
-					commandType = new Check();
+					commandType = new Check(commandText[1]); // Param
 					break;
 				case "uncheck":
-					commandType = new Uncheck();
+					commandType = new Uncheck(commandText[1]); // Param
 					break;
 				case "help":
 					commandType = new Help();
 					break;
 				default:
-					commandType = new Error();
+					commandType = new Error(commandText);
 					break;
 			}
 
