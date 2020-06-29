@@ -7,11 +7,8 @@ using System.Text;
 namespace Tasks
 {
     public abstract class Command
-    { 
-		public virtual void CommandInput()
-		{
-
-		}
+    {
+		public abstract void CommandInput();
 
 		protected void SetTaskStatus(string IdSearched, bool done)
 		{
