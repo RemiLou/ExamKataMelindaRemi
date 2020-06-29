@@ -7,22 +7,25 @@ namespace Tasks
     class Add : Command
     {
 		private string TypeToAdd;
+		private string Name;
+		private string Description;
 
-		public Add(string TypeToAdd)
+		public Add(string typeToAdd, string name, string description)
 		{
-			this.Id = id;
+			this.TypeToAdd = typeToAdd;
+			this.Name = name;
+			this.Description = description;
 		}
 
-		public override void CommandInput(string command)
+		public override void CommandInput()
 		{
 			if (TypeToAdd == "project")
-			{
-				AddProject(Id);
-			}
+				Program.projects.Add(new Project() { Name = Name, Tasks = new List<Task>() });
 			else if (TypeToAdd == "task")
 			{
-				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
-				AddTask(projectTask[0], projectTask[1]);
+				foreach (var project in Program.projects)
+					if (project.Name == Name)
+						project.AddTask(Description);
 			}
 		}
 	}
