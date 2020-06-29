@@ -40,27 +40,10 @@ namespace Tasks
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
 
-			Command commandType;
-			switch (command) {
-			case "show":
-				commandType = new Show();
-				break;
-			case "add":
-				commandType = new Add();
-				break;
-			case "check":
-				commandType = new Check();
-				break;
-			case "uncheck":
-				commandType = new Uncheck();
-				break;
-			case "help":
-				commandType = new Help();
-				break;
-			default:
-				Error(command);
-				break;
-			}
+			CommandFactory commandType = new CommandFactory();
+			var executeCommand = commandType.GetCommandType(command);
+
+			executeCommand.CommandInput();
 		}
 
 		private void Show()

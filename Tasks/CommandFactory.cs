@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace Tasks
 {
     public class CommandFactory
     {
-		private void Execute(string command)
+		public Command GetCommandType(string command)
 		{
 			Command commandType;
 			switch (command)
@@ -27,9 +28,11 @@ namespace Tasks
 					commandType = new Help();
 					break;
 				default:
-					Error(command);
+					commandType = new Error();
 					break;
 			}
+
+			return commandType;
 		}
 	}
 }
