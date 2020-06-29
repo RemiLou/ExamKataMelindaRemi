@@ -9,10 +9,11 @@ namespace Tasks
 		private const string QUIT = "quit";
 
 		public static List<Project> projects = new List<Project>();
-		public static readonly IConsole console;
+		public static IConsole console;
 
 		public static void Main(string[] args)
 		{
+			console = new RealConsole();
 			Program.Run();
 		}
 
