@@ -39,9 +39,10 @@ namespace Tasks
 		{
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
+			Command commandType;
 			switch (command) {
 			case "show":
-				Show();
+				commandType = new Show();
 				break;
 			case "add":
 				Add(commandRest[1]);
