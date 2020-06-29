@@ -46,7 +46,7 @@ namespace Tasks
 			executeCommand.CommandInput();
 		}
 
-		private void SetDone(string IdSearched, bool done)
+		private void SetTaskStatus(string IdSearched, bool done)
 		{
 			int id = int.Parse(IdSearched);
 			var task = projects
