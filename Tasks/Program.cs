@@ -45,16 +45,16 @@ namespace Tasks
 				commandType = new Show();
 				break;
 			case "add":
-				Add(commandRest[1]);
+				commandType = new Add();
 				break;
 			case "check":
-				Check(commandRest[1]);
+				commandType = new Check();
 				break;
 			case "uncheck":
-				Uncheck(commandRest[1]);
+				commandType = new Uncheck();
 				break;
 			case "help":
-				Help();
+				commandType = new Help();
 				break;
 			default:
 				Error(command);
