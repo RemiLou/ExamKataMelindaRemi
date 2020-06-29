@@ -6,16 +6,15 @@ namespace Tasks
 {
     public class Project
     {
-        List<Task> tasks = new List<Task>();
+		private LastId lastId = new LastId();
 
-		private void AddTask(string project, string description)
+		public string Name { get; set; }
+
+		private List<Task> tasks = new List<Task>();
+
+		private void AddTask(string description)
 		{
-			if (!tasks.TryGetValue(project, out IList<Task> projectTasks))
-			{
-				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
-				return;
-			}
-			projectTasks.Add(new Task { Id = lastId.Id, Description = description, Done = false });
+			tasks.Add(new Task { Id = lastId.Id, Description = description, Done = false });
 		}
 	}
 }
