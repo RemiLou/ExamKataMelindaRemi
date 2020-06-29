@@ -6,9 +6,9 @@ namespace Tasks
 {
     public class Uncheck : Command
     {
-		private int Id;
+		private string Id;
 
-		public Uncheck(int id)
+		public Uncheck(string id)
 		{
 			this.Id = id;
 		}
