@@ -1,2 +1,5 @@
-target
-*.iml
+.vs
+bin
+obj
+packages
+*.suo
