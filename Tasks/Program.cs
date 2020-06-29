@@ -58,7 +58,7 @@ namespace Tasks
 				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
 				return;
 			}
-			projectTasks.Add(new Task { Id = NextId(), Description = description, Done = false });
+			projectTasks.Add(new Task { Id = LastId(), Description = description, Done = false });
 		}
 
 		private void SetDone(string idString, bool done)
@@ -76,9 +76,9 @@ namespace Tasks
 			identifiedTask.Done = done;
 		}
 
-		private long NextId()
+		private long LastId()
 		{
-			return ++lastId;
+			return lastId++;
 		}
 	}
 }
