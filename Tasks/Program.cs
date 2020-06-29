@@ -11,8 +11,6 @@ namespace Tasks
 		private List<Project> projects = new List<Project>();
 		private readonly IConsole console;
 
-		private LastId lastId = new LastId();
-
 		public static void Main(string[] args)
 		{
 			new Program(new RealConsole()).Run();
@@ -46,7 +44,7 @@ namespace Tasks
 			executeCommand.CommandInput();
 		}
 
-		private void SetTaskStatus(string IdSearched, bool done)
+		public void SetTaskStatus(string IdSearched, bool done)
 		{
 			int id = int.Parse(IdSearched);
 			var task = projects

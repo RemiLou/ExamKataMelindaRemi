@@ -8,7 +8,7 @@ namespace Tasks
     public abstract class Command
     {
 
-        public virtual void CommandInput()
+        public virtual void CommandInput(params object[] parameters)
         { 
         
         }
