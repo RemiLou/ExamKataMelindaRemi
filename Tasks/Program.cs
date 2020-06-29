@@ -33,7 +33,7 @@ namespace Tasks
 			var commandText = commandLine.Split(" ".ToCharArray(), 2);
 
 			CommandFactory commandType = new CommandFactory();
-			var executeCommand = commandType.GetCommandType(command);
+			var executeCommand = commandType.GetCommandType(commandText);
 
 			executeCommand.CommandInput();
 		}

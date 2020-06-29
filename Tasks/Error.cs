@@ -6,9 +6,9 @@ namespace Tasks
 {
     public class Error : Command
     {
-        private string Command;
+        private string[] Command;
 
-        public Error(string Command)
+        public Error(string[] Command)
         {
             this.Command = Command;
         }

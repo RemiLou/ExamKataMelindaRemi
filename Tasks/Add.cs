@@ -6,15 +6,20 @@ namespace Tasks
 {
     class Add : Command
     {
+		private string TypeToAdd;
+
+		public Add(string TypeToAdd)
+		{
+			this.Id = id;
+		}
+
 		public override void CommandInput(string command)
 		{
-			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
-			var subcommand = subcommandRest[0];
-			if (subcommand == "project")
+			if (TypeToAdd == "project")
 			{
-				AddProject(subcommandRest[1]);
+				AddProject(Id);
 			}
-			else if (subcommand == "task")
+			else if (TypeToAdd == "task")
 			{
 				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
 				AddTask(projectTask[0], projectTask[1]);
