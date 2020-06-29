@@ -8,10 +8,6 @@ namespace Tasks
 {
     public abstract class Command
     { 
-        public virtual void CommandInput(string id)
-        { 
-        
-        }
 		public virtual void CommandInput()
 		{
 

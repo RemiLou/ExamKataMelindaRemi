@@ -6,9 +6,16 @@ namespace Tasks
 {
     public class Uncheck : Command
     {
-		public override void CommandInput(string id)
+		private int Id;
+
+		public Uncheck(int id)
 		{
-			SetTaskStatus(id, false);
+			this.Id = id;
+		}
+
+		public override void CommandInput()
+		{
+			SetTaskStatus(Id, false);
 		}
     }
 }

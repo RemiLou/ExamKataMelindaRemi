@@ -8,13 +8,13 @@ namespace Tasks
     {
         public override void CommandInput()
         {
-            console.WriteLine("Commands:");
-            console.WriteLine("  show");
-            console.WriteLine("  add project <project name>");
-            console.WriteLine("  add task <project name> <task description>");
-            console.WriteLine("  check <task ID>");
-            console.WriteLine("  uncheck <task ID>");
-            console.WriteLine();
+            Program.console.WriteLine("Commands:");
+            Program.console.WriteLine("  show");
+            Program.console.WriteLine("  add project <project name>");
+            Program.console.WriteLine("  add task <project name> <task description>");
+            Program.console.WriteLine("  check <task ID>");
+            Program.console.WriteLine("  uncheck <task ID>");
+            Program.console.WriteLine();
         }
     }
 }

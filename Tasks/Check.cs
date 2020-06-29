@@ -7,9 +7,16 @@ namespace Tasks
 {
     class Check : Command
     {
-        public override void CommandInput(string id)
+        private string Id;
+
+        public Check(string id)
         {
-            SetTaskStatus(id, true);
+            this.Id = id;
+        }
+
+        public override void CommandInput()
+        {
+            SetTaskStatus(Id, true);
         }
 	}
 }
