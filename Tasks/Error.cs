@@ -8,7 +8,7 @@ namespace Tasks
     {
         public override void CommandInput()
         {
-            console.WriteLine("I don't know what the command \"{0}\" is.", command);
+            Program.console.WriteLine("I don't know what the command \"{0}\" is.", command);
         }
     }
 }

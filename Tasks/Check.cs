@@ -9,7 +9,7 @@ namespace Tasks
     {
         public override void CommandInput(params object[] parameters)
         {
-            Program.SetTaskStatus(parameters[0].ToString(), Convert.ToBoolean(parameters[1]));
+            SetTaskStatus(parameters[0].ToString(), Convert.ToBoolean(parameters[1]));
         }
 
 		public void SetTaskStatus(string IdSearched, bool done)
