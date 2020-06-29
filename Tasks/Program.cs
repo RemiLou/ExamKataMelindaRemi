@@ -11,7 +11,7 @@ namespace Tasks
 		private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
 		private readonly IConsole console;
 
-		private long lastId = 0;
+		private LastId lastId = new LastId();
 
 		public static void Main(string[] args)
 		{
