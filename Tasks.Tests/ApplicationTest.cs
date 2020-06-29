@@ -16,7 +16,7 @@ namespace Tasks
 		public void StartTheApplication()
 		{
 			this.console = new FakeConsole();
-			this.applicationThread = new System.Threading.Thread(() => Program.Run());
+			this.applicationThread = new System.Threading.Thread(() => Program.Main(null));
 			applicationThread.Start();
 		}
 
@@ -54,6 +54,14 @@ namespace Tasks
 		public void AddProjectAndShowIt()
 		{
 			Execute("add project secrets");
+			Execute("show");
+
+			Execute("quit");
+		}
+
+		[Test, Timeout(1000)]
+		public void Show()
+		{
 			Execute("show");
 
 			Execute("quit");
