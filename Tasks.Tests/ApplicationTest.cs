@@ -33,6 +33,33 @@ namespace Tasks
 		}
 
 		[Test, Timeout(1000)]
+		public void AddProject()
+		{
+			Execute("add project secrets");
+
+			Execute("quit");
+		}
+
+		[Test, Timeout(1000)]
+		public void AddAndCheckIt()
+		{
+			Execute("add project secrets");
+
+			Execute("quit");
+		}
+
+		[Test, Timeout(1000)]
+		public void AddAndCheckIt()
+		{
+			Execute("add project secrets");
+			Execute("add task training Four Elements of Simple Design");
+
+			Execute("check 1");
+
+			Execute("quit");
+		}
+
+		[Test, Timeout(1000)]
 		public void ItWorks()
 		{
 			Execute("show");
