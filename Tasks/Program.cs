@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Tasks
 {
-	public sealed class TaskList
+	public class Program
 	{
 		private const string QUIT = "quit";
 
@@ -15,10 +15,10 @@ namespace Tasks
 
 		public static void Main(string[] args)
 		{
-			new TaskList(new RealConsole()).Run();
+			new Program(new RealConsole()).Run();
 		}
 
-		public TaskList(IConsole console)
+		public Program(IConsole console)
 		{
 			this.console = console;
 		}

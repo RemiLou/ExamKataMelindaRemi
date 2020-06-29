@@ -6,7 +6,7 @@ namespace Tasks
 {
     public class Show : Command
     {
-		public override void CommandType()
+		public override void CommandInput()
 		{
 			foreach (var project in tasks)
 			{

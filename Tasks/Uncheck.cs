@@ -7,7 +7,7 @@ namespace Tasks
     public class Uncheck : Command
     {
 
-        public override void CommandType()
+        public override void CommandInput()
         {
 			int id = int.Parse(idString);
 			var identifiedTask = tasks

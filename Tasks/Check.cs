@@ -6,7 +6,7 @@ namespace Tasks
 {
     class Check : Command
     {
-        public override void CommandType()
+        public override void CommandInput()
         {
 			int id = int.Parse(idString);
 			var identifiedTask = tasks
@@ -20,11 +20,6 @@ namespace Tasks
 			}
 
 			identifiedTask.Done = done;
-		}
-
-		public override string Execute()
-		{
-			return base.Execute();
 		}
 	}
 }

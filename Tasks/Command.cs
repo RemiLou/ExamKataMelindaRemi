@@ -8,7 +8,7 @@ namespace Tasks
     public abstract class Command
     {
 
-        public abstract void CommandType()
+        public virtual void CommandInput()
         { 
         
         }
