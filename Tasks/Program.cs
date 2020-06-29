@@ -46,29 +46,6 @@ namespace Tasks
 			executeCommand.CommandInput();
 		}
 
-		private void Show()
-		{
-			foreach (var project in tasks) {
-				console.WriteLine(project.Key);
-				foreach (var task in project.Value) {
-					console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
-				}
-				console.WriteLine();
-			}
-		}
-
-		private void Add(string commandLine)
-		{
-			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
-			var subcommand = subcommandRest[0];
-			if (subcommand == "project") {
-				AddProject(subcommandRest[1]);
-			} else if (subcommand == "task") {
-				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
-				AddTask(projectTask[0], projectTask[1]);
-			}
-		}
-
 		private void AddProject(string name)
 		{
 			tasks[name] = new List<Task>();
@@ -84,16 +61,6 @@ namespace Tasks
 			projectTasks.Add(new Task { Id = NextId(), Description = description, Done = false });
 		}
 
-		private void Check(string idString)
-		{
-			SetDone(idString, true);
-		}
-
-		private void Uncheck(string idString)
-		{
-			SetDone(idString, false);
-		}
-
 		private void SetDone(string idString, bool done)
 		{
 			int id = int.Parse(idString);
@@ -107,22 +74,6 @@ namespace Tasks
 			}
 
 			identifiedTask.Done = done;
-		}
-
-		private void Help()
-		{
-			console.WriteLine("Commands:");
-			console.WriteLine("  show");
-			console.WriteLine("  add project <project name>");
-			console.WriteLine("  add task <project name> <task description>");
-			console.WriteLine("  check <task ID>");
-			console.WriteLine("  uncheck <task ID>");
-			console.WriteLine();
-		}
-
-		private void Error(string command)
-		{
-			console.WriteLine("I don't know what the command \"{0}\" is.", command);
 		}
 
 		private long NextId()
