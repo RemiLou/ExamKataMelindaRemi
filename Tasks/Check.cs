@@ -7,25 +7,9 @@ namespace Tasks
 {
     class Check : Command
     {
-        public override void CommandInput(params object[] parameters)
+        public override void CommandInput(string id)
         {
-            SetTaskStatus(parameters[0].ToString(), Convert.ToBoolean(parameters[1]));
+            SetTaskStatus(id, true);
         }
-
-		public void SetTaskStatus(string IdSearched, bool done)
-		{
-			int id = int.Parse(IdSearched);
-			var task = Program.projects
-				.Select(project => project.Tasks.FirstOrDefault(task => task.Id == id))
-				.FirstOrDefault();
-
-			if (task == null)
-			{
-				Program.console.WriteLine("Could not find a task with an ID of {0}.", id);
-				return;
-			}
-
-			task.Done = done;
-		}
 	}
 }
